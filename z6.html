@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery {
+          display: flex;
+        }
+        
+        .gallery img {
+          margin-right: 10px;
+          max-width: 200px;
+          max-height: 200px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Image Gallery</h1>
+      <div class="gallery"></div>
+      
+      <script>
+        let numImages = 0;
+        let gallery = document.querySelector('.gallery');
+        while (true) {
+        numImages = prompt('How many images do you want to add to the gallery?');
+        
+        // check for valid input
+        if (isNaN(numImages) || numImages < 1) {
+          alert('Please enter a valid number.');
+          continue;
+        }
+        
+        // input is valid
+        break;
+      }
+
+      for (let i = 0; i < numImages; i++) {
+        let src = '';
+        while (true) {
+          src = prompt(`Enter the source URL for image ${i + 1}:`);
+
+          if (src.trim().length === 0) {
+            alert('Please enter a valid URL.');
+            continue;
+          }
+          
+          // URL is valid
+          break;
+        }
+        
+        let img = document.createElement('img');
+        img.src = src;
+        gallery.appendChild(img);
+      }
+    </script>
+
+    
+</body>
+</html>
